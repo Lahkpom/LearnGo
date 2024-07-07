@@ -6,4 +6,5 @@ const pkgName = "slices"
 
 func log(msg string) {
 	fmt.Println("LOG", msg)
+	//flag
 }
