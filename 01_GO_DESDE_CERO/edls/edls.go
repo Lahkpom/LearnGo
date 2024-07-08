@@ -1,8 +1,15 @@
 package main
 
-import "time"
+import (
+	"time"
 
-//*file types.
+	"github.com/fatih/color"
+)
+
+// Windos os system
+const Windows = "windows"
+
+// *file types.
 const (
 	FILE_REGULAR int = iota
 	FILE_DIRECTORY
@@ -12,10 +19,11 @@ const (
 	FILE_LINK
 )
 
-//*file extension.
+// *file extensions.
 const (
 	EXE = ".exe"
 	DEB = ".deb"
+	ZIP = ".zip"
 	GZ  = ".gz"
 	TAR = ".tar"
 	RAR = ".rar"
@@ -24,37 +32,46 @@ const (
 	GIF = ".gif"
 )
 
-//* File contra las estructuras para cada archivo.
-type File struct {
+// * File contra las estructuras para cada archivo.
+type file struct {
 	//* size no entendí para que sirve, dijo algo de renderizar.
 	//* mode contendrá los permisos de lectura escritura que tenga el archivo.
 	name             string
 	fileType         int
-	isDirectory      bool
+	isDir            bool
 	isHidden         bool
 	userName         string
 	groupName        string
 	size             int64
-	lastModification time.Time
+	modificationTime time.Time
 	mode             string
 }
 
-//* styleFileType contendrá el estilo para cada tipo de archivo.
+// * styleFileType contendrá el estilo para cada tipo de archivo.
 type styleFileType struct {
 	icon   string
-	color  string
+	color  color.Attribute
 	symbol string
 }
 
-//* mapStyleByFileType es donde vamos a poner el estilo que va a tener cada tipo de dato
+// * mapStyleByFileType es donde vamos a poner el estilo que va a tener cada tipo de dato
 var mapStyleByFileType = map[int]styleFileType{
 	FILE_REGULAR:    {icon: "📖"},
-	FILE_DIRECTORY:  {"📁", "BLUE", "/"},
-	FILE_EXECUTABLE: {"🚀", "GREEN", "*"},
-	FILE_COMPRESS:   {icon: "📦", color: "RED"},
-	FILE_IMAGE:      {icon: "🖼️", color: "MAGENTA"},
-	FILE_LINK:       {icon: "⛓️", color: "CYAN"},
+	FILE_DIRECTORY:  {"📁", color.FgBlue, "/"},
+	FILE_EXECUTABLE: {"🚀", color.FgGreen, "*"},
+	FILE_COMPRESS:   {icon: "📦", color: color.FgRed},
+	FILE_IMAGE:      {icon: "🖼️", color: color.FgMagenta},
+	FILE_LINK:       {icon: "⛓️", color: color.FgCyan},
 }
+
+var (
+	blue    = color.New(color.FgBlue).Add(color.Bold).SprintFunc()
+	green   = color.New(color.FgGreen).Add(color.Bold).SprintFunc()
+	red     = color.New(color.FgRed).Add(color.Bold).SprintFunc()
+	magenta = color.New(color.FgMagenta).Add(color.Bold).SprintFunc()
+	cyan    = color.New(color.FgCyan).Add(color.Bold).SprintFunc()
+	yellow  = color.New(color.FgYellow).Add(color.Bold).SprintFunc()
+)
 
 func edls() {
 
