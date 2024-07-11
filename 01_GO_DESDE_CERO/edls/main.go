@@ -12,10 +12,8 @@ import (
 	"strings"
 	"time"
 
+	//"github.com/fatih/color"
 	// Devuelve información sin importar el SO en el que se ejectue
-	"github.com/AJRDRGZ/fileinfo"
-	"github.com/Lahkpom/mainModules/constraints"
-	"github.com/fatih/color"
 )
 
 func main() {

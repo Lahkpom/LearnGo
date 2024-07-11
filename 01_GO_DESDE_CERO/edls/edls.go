@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/fatih/color"
+	//"github.com/fatih/color"
 )
 
 // Windos os system
@@ -72,7 +72,3 @@ var (
 	cyan    = color.New(color.FgCyan).Add(color.Bold).SprintFunc()
 	yellow  = color.New(color.FgYellow).Add(color.Bold).SprintFunc()
 )
-
-func edls() {
-
-}
