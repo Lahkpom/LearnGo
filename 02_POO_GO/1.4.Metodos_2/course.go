@@ -2,7 +2,6 @@ package main
 
 import "fmt"
 
-/*
 type Course struct {
 	Name string
 	Price float64
@@ -10,7 +9,6 @@ type Course struct {
 	UserIDs []uint
 	Classes map[uint]string
 }
-*/
 
 func (c Course) PrintClasses() {
 	fmt.Println("Las clases de este curso son:")
