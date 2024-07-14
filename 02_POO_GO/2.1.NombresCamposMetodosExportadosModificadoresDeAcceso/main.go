@@ -6,32 +6,16 @@ import (
 	"github.com/Lahkpom/myModules/courses"
 )
 
-// Las funciones se declaran por fuera de las estructuras y pueden ser reutilizables para todos
-// Podemos hacer uso de las estructuras siempre y cuando estén dentro del mismo package
-
-//! CON GO BUILD PODEMOS GENERAR NUESTRO BINARIO PARA EJECUTICÓN
-
-// Podemos tener otros archivos solo con declaración de función aún teniendo la declaración de la estructuraa
-// En otro distinto
-
-/*
-func (c Course) PrintClasses() {
-	fmt.Println("Las clases de este curso son:")
-	for _, class := range c.Classes {
-		fmt.Println(class)
-	}
-}
-
-type Course struct {
-	Name    string
-	Price   float64
-	IsFree  bool
-	UserIDs []uint
-	Classes map[uint]string
-}
-*/
-
-// No hace falta importar el contenido del otro archivo, es suficiente con que esté en el mismo package.
+//* En go no hay declaraciones como public, private o protected para 
+//* indicar la disponibilidad de una función
+//* En go existen los identificadores exportados o no exportados.
+//* Es decir, indicar qué funciones pueden utilizar los usuarios de 
+//* nuestros paquetes.
+//* Esto se hace poniendo la primer letra de la función en mayúscula o minúscula
+//* Si es mayúscula son exportados y si es minúscula son no exportados.
+//! Esto es para funciones y variables
+//! El poner las cosas en minúsculas es como un private
+//* Esto es el pie para setters y getters
 
 func main() {
 	c1 := courses.Course{
@@ -49,14 +33,8 @@ func main() {
 
 	c1.Classes = append(c1.Classes, c24, c25)
 
-	// En vez de PrintClasses(c)
 	c1.PrintClasses()
 
-	//* Para poder pasar un puntero debo poner el objeto entre () y con el & por delante
-	//* Sino solo vamos a trabajr con la copia y el valor real nunca se actualiza
-	// (&c1).ChangePrice(100)
-	// Al final dijo que si bien esta sería la sintaxis completa, go pasa el puntero o desferenciación
-	// automáticamente
 	c1.ChangePrice(100)
 	fmt.Printf("El precio del curso es: %f\n", c1.Price)
 }
