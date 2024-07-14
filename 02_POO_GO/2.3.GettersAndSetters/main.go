@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	//* Lo que es Getters y Setters lo apliqué en el paquete courses poniendo las variables 
+	//* Lo que es Getters y Setters lo apliqué en el paquete courses poniendo las variables
 	//* con minúscla
 
 	c1 := courses.NewCourse("Prueba", 50, false)
@@ -21,9 +21,9 @@ func main() {
 	c1.AddClass("Clase 5", "Descripción de la clase 5")
 
 	c1.PrintClasses()
-	fmt.Printf("El precio del curso es %v\n", c1.GetPrice())
+	fmt.Printf("El precio del curso es %v\n", c1.Price())
 
 	c1.ChangePrice(100)
-	fmt.Printf("El precio del curso actualizado es: %f\n", c1.GetPrice())
+	fmt.Printf("El precio del curso actualizado es: %f\n", c1.Price())
 
 }
