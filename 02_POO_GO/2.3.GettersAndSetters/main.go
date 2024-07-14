@@ -25,5 +25,4 @@ func main() {
 
 	c1.ChangePrice(100)
 	fmt.Printf("El precio del curso actualizado es: %f\n", c1.Price())
-
 }
