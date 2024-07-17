@@ -34,7 +34,8 @@ func main() {
 		"Buenos Aires",
 	)
 	invoice1.SetClient(client1)
-	invoice1.AddItem(item1, item2, item3)
+
+	invoice1.AddItem(*item1, *item2, *item3)
 
 	invoice1.ShowItems()
 	fmt.Println("Total:", invoice1.Total())
