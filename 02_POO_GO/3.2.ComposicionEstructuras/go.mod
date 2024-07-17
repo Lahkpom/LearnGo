@@ -1,3 +1,3 @@
-module github.com/Lahkpom/myModules
+module main
 
-go 1.22.5
+go 1.21.11

@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
-	//
-	"github.com/Lahkpom/myModules/customer"
-	"github.com/Lahkpom/myModules/invoice"
-	"github.com/Lahkpom/myModules/invoiceitem"
+	"main/modules/customer"
+	"main/modules/invoice"
+	"main/modules/invoiceitem"
 )
 
 func main() {
@@ -27,18 +26,18 @@ func main() {
 	item3 := createItem(
 		003,
 		"Keyboard",
-		3000,
+		3000.97,
 	)
 
 	invoice1 := createInvoice(
 		"Argentina",
 		"Buenos Aires",
 	)
-
-	invoice1.SetCliente(client1)
+	invoice1.SetClient(client1)
 	invoice1.AddItem(item1, item2, item3)
 
-	fmt.Println(invoice1)
+	invoice1.ShowItems()
+	fmt.Println("Total:", invoice1.Total())
 }
 
 // createCustomer() returns a customer
@@ -51,7 +50,7 @@ func createCustomer() *customer.Customer {
 }
 
 // createItem() returns an item
-func createItem(id uint, product string, value float64) *invoiceitem.InvoiceItem {
+func createItem(id uint, product string, value float64) *invoiceitem.Item {
 	// Debería tener el mismo formato que el otro
 	return invoiceitem.New(id, product, value)
 }
