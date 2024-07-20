@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"main/modules/customer"
 	"main/modules/invoice"
-	"main/modules/invoiceitem"
+	"main/modules/item"
 )
 
 func main() {
@@ -35,7 +35,7 @@ func main() {
 	)
 	invoice1.SetClient(client1)
 
-	invoice1.AddItem(*item1, *item2, *item3)
+	invoice1.AddItems(*item1, *item2, *item3)
 
 	invoice1.ShowItems()
 	fmt.Println("Total:", invoice1.Total())
@@ -51,9 +51,9 @@ func createCustomer() *customer.Customer {
 }
 
 // createItem() returns an item
-func createItem(id uint, product string, value float64) *invoiceitem.Item {
+func createItem(id uint, product string, value float64) *item.Item {
 	// Debería tener el mismo formato que el otro
-	return invoiceitem.New(id, product, value)
+	return item.New(id, product, value)
 }
 
 // createInvoice() returns an invoice

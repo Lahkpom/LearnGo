@@ -1,4 +1,6 @@
-package invoiceitem
+package item
+
+import "fmt"
 
 // Item contains the information of an invoice item
 type Item struct {
@@ -29,3 +31,30 @@ func (i *Item) SetValue(value float64) { i.value = value }
 
 // Value() returns the value of the item
 func (i *Item) Value() float64 { return i.value }
+
+//! CREAMOS ESTE TYPO ITEMS QUE ES UN SLICE DE ITEMS PARA ASIGNARLE TODO LO QUE TENGA QUE VER CON LOS ITEMS
+
+// Items contains a list of items
+type Items []Item
+
+// AddItem() adds an item to the list
+func (is Items) AddItems(itms []Item) {
+	for _, v := range itms {
+		is = append(is, v)
+	}
+}
+
+// Total() returns the total of the items
+func (is Items) Total() (total float64) {
+	for _, v := range is {
+		total += v.value
+	}
+	return
+}
+
+// ShowItems() shows the items
+func (is Items) ShowItems() {
+	for j, v := range is {
+		fmt.Printf("%v. %v\t%v\n", j+1, v.Product(), v.Value())
+	}
+}
