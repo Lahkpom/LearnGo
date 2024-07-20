@@ -73,6 +73,6 @@ func (i *Invoice) RemoveItem(items ...invoiceitem.Item) {
 
 // ShowItems() shows the items of the invoice
 func (i *Invoice) ShowItems() {
-	fmt.Println(i.client.Name())
+	fmt.Printf(("- Customer: %v\n"), i.client.Name())
 	i.items.ShowItems()
 }

@@ -38,7 +38,7 @@ func main() {
 	invoice1.AddItems(*item1, *item2, *item3)
 
 	invoice1.ShowItems()
-	fmt.Println("Total:", invoice1.Total())
+	fmt.Println("- Total:", invoice1.Total())
 }
 
 // createCustomer() returns a customer

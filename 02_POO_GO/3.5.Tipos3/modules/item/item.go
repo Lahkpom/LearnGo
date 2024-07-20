@@ -54,6 +54,7 @@ func (is Items) Total() (total float64) {
 
 // ShowItems() shows the items
 func (is Items) ShowItems() {
+	fmt.Println("- Items:")
 	for j, v := range is {
 		fmt.Printf("%v. %v\t%v\n", j+1, v.Product(), v.Value())
 	}
