@@ -14,7 +14,7 @@ func NewPerson(name string, age uint8) Person {
 }
 
 func (p Person) Greet() {
-	fmt.Printf("Hola soy %v\n", p.name)
+	fmt.Printf("Hello, I'm %v, and I'm %v\n", p.name, p.age)
 }
 
 // Para embeber un type en una estructura la debemos poner dentro
@@ -38,6 +38,20 @@ func (e Employee) Payroll() {
 	fmt.Printf("Payroll: %v\n", e.salary * 0.90)
 }
 
+// Esto no es técnicamente sobre escritura
+// En Go se le dice ocultación de métodos
+// Lo que hace Go es revisar si Employee tiene una función Greet()
+// En caso que no la tenga, revisa si alguna de las estructuras 
+// embebidas tiene una
+// No es sobre escritura porque todavía podría acceder a la función 
+// Greet() de la embebida
+// Al momento de llamar a la variable con la que creemos Employee
+// le ponemos .Embebida, y ahí Greet()
+
+func (e Employee) Greet() {
+	fmt.Println("Hello from Employee")
+}
+
 func main()  {
 	p1 := NewPerson("Leo", 25)
 	p1.Greet()
@@ -45,4 +59,6 @@ func main()  {
 	e1 := NewEmployee("Fiore", 23, 100)
 	e1.Greet()
 	e1.Payroll()
+	// Así se llama a la función oculta de la embebida
+	e1.Person.Greet()
 }

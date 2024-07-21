@@ -1,0 +1,1 @@
+En Go no existe la sobreescritura de métodos permitiendo que una clase hija modifique el comportamiento de una función de una superclase, por lo que Employee no podría sobreescribir la función Greet() de Person
