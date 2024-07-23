@@ -7,7 +7,7 @@ import (
 )
 
 type Fabrica struct{}
-
+//! flag
 // GetMetodo() Devuelve un MetodoPago de tipo interface, 
 // osea que puede tomar la forma de cualquier estructura que tenga implementada esa interfaz
 func GetMetodo(metodo string) metodoPago.MetodoPago {
